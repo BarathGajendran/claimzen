@@ -173,6 +173,54 @@ const LandingPage = () => {
           </div>
         </section>
 
+        {/* Technical Pipeline Section */}
+        <section className="bg-white dark:bg-slate-900/40 border-y border-slate-100 dark:border-slate-800/60 py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div className="text-center space-y-3 max-w-xl mx-auto">
+              <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-slate-50">
+                Under the Hood: How It Works
+              </h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                ClaimZen utilizes a deterministic image analysis pipeline to deliver high-fidelity damage reports.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
+              <div className="space-y-2 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-950">
+                <span className="text-xs font-bold text-brand-500 uppercase tracking-widest">Phase 01</span>
+                <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">Secure Ingest</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Adjusters upload vehicle collision photos. The system processes the files through strict size limits (max 5MB) and type validation filters.
+                </p>
+              </div>
+
+              <div className="space-y-2 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-950">
+                <span className="text-xs font-bold text-brand-500 uppercase tracking-widest">Phase 02</span>
+                <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">Content Hash</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  The backend computes an MD5 hash of the image binary, using character byte modulo calculations to consistently classify damage categories.
+                </p>
+              </div>
+
+              <div className="space-y-2 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-950">
+                <span className="text-xs font-bold text-brand-500 uppercase tracking-widest">Phase 03</span>
+                <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">Database Sync</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Assessment reports are stored securely under a MongoDB database cluster, maintaining user account separation and auditing integrity.
+                </p>
+              </div>
+
+              <div className="space-y-2 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-950">
+                <span className="text-xs font-bold text-brand-500 uppercase tracking-widest">Phase 04</span>
+                <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">Manual Override</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Adjusters retain control. Our human-in-the-loop dashboard lets you adjust initial estimates and save overrides directly back to the cloud.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Call to Action */}
         <section className="bg-gradient-to-br from-brand-600 to-indigo-700 dark:from-brand-950 dark:to-slate-900 border-t border-slate-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center text-white space-y-6">
