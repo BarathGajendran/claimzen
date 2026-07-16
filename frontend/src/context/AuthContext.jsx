@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }) => {
       return { success: true };
     } catch (err) {
       console.error('Registration request failed', err);
-      const errMsg = err.response?.data?.message || 'Registration failed. Email might be in use.';
+      const errMsg = err.response?.data?.message || 'Network connection failed. Please try again.';
       return { success: false, error: errMsg };
     }
   };
