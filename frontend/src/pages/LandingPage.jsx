@@ -124,7 +124,7 @@ const LandingPage = () => {
         {/* Stats Grid */}
         <section className="bg-white dark:bg-slate-900/50 border-y border-slate-100 dark:border-slate-800/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
               {stats.map((stat, idx) => (
                 <div key={idx} className="space-y-1">
                   <div className="text-3xl sm:text-4xl font-extrabold text-brand-500 dark:text-brand-400">
