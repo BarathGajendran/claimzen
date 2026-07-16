@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ClaimZen 🛡️✨
 
 **ClaimZen** is a professional, high-performance web console designed for vehicle insurance adjusters and automotive collision inspectors to automate damage diagnostics, estimate repair costs in INR, and flag fraud indicators. 
@@ -129,3 +130,6 @@ To switch from the MD5 content hashing classifier to a live Multimodal model, si
      return JSON.parse(response.text);
    };
    ```
+=======
+# claimzen
+>>>>>>> c10cfab45e3d0d5b1575dce3967f8e36f9032693
