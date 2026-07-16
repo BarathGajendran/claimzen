@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ClaimZen 🛡️✨
 
 **ClaimZen** is a professional, high-performance web console designed for vehicle insurance adjusters and automotive collision inspectors to automate damage diagnostics, estimate repair costs in INR, and flag fraud indicators. 
@@ -73,8 +72,8 @@ ClaimZen maps all vehicle scans to the following 5 industry-standard repair cate
    ```env
    PORT=5000
    NODE_ENV=development
-   JWT_SECRET=claimzen_super_secret_jwt_key_987654321
-   MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.abcde.mongodb.net/claimzen?retryWrites=true&w=majority
+   JWT_SECRET=your_jwt_secret_key
+   MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/claimzen
    ```
 4. Start the development server:
    ```bash
@@ -130,6 +129,4 @@ To switch from the MD5 content hashing classifier to a live Multimodal model, si
      return JSON.parse(response.text);
    };
    ```
-=======
-# claimzen
->>>>>>> c10cfab45e3d0d5b1575dce3967f8e36f9032693
+

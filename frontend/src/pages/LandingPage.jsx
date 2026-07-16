@@ -36,7 +36,6 @@ const LandingPage = () => {
   const stats = [
     { value: '15s', label: 'Average Report Time' },
     { value: '94%', label: 'Estimate Accuracy' },
-    { value: '$4.8M', label: 'Repairs Approved' },
     { value: '60%', label: 'Cycle Time Reduction' }
   ];
 
@@ -254,20 +253,6 @@ const LandingPage = () => {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-150 dark:border-slate-900 bg-white dark:bg-slate-950/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 dark:text-slate-500 gap-4">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-brand-500" />
-            <span>&copy; {new Date().getFullYear()} ClaimZen Inc. All rights reserved.</span>
-          </div>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-brand-500">Terms of Service</a>
-            <a href="#" className="hover:text-brand-500">Privacy Policy</a>
-            <a href="#" className="hover:text-brand-500">Documentation</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

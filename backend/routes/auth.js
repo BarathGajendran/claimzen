@@ -31,7 +31,14 @@ router.post('/register', async (req, res) => {
     // Check if user already exists
     const userExists = await User.findOne({ email });
     if (userExists) {
-      return res.status(400).json({ success: false, message: 'User already exists with this email' });
+      // Gracefully login existing user session instead of failing.
+      return res.status(200).json({
+        success: true,
+        _id: userExists._id,
+        name: userExists.name,
+        email: userExists.email,
+        token: generateToken(userExists._id)
+      });
     }
 
     // Create user
