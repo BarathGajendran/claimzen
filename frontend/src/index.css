@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Configure Class-based Dark Mode in Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-50: #fafafa;
+  --color-brand-100: #f4f4f5;
+  --color-brand-200: #e4e4e7;
+  --color-brand-300: #d4d4d8;
+  --color-brand-400: #a1a1aa;
+  --color-brand-500: #09090b; /* Deep high-contrast zinc */
+  --color-brand-600: #18181b;
+  --color-brand-700: #27272a;
+  --color-brand-800: #3f3f46;
+  --color-brand-900: #52525b;
+  --color-brand-950: #71717a;
+
+  --color-accent-500: #0284c7; /* Sky blue as secondary accent color */
+  --color-accent-600: #0369a1;
+  
+  --shadow-premium: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-premium-hover: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  --shadow-premium-dark: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Core Base Styles */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #fafafa; /* Minimal light grey */
+  color: #09090b; /* High-contrast text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition-property: color, background-color;
+  transition-duration: 200ms;
+}
+
+body.dark {
+  background-color: #000000; /* Pure black backdrop */
+  color: #fafafa;
+}
+
+/* High-Contrast Action Buttons */
+.btn-primary {
+  background-color: #09090b;
+  color: #ffffff;
+  @apply font-semibold transition-all hover:bg-zinc-800 active:scale-98 cursor-pointer shadow-sm;
+}
+body.dark .btn-primary {
+  background-color: #fafafa;
+  color: #09090b;
+  @apply hover:bg-zinc-200;
+}
+
+.btn-secondary {
+  @apply border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-700 dark:text-zinc-300 font-medium transition-all hover:bg-zinc-50 dark:hover:bg-zinc-900 cursor-pointer;
+}
+
+/* Minimal Card Outline */
+.card-outline-glow {
+  @apply border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-950 transition-all duration-200;
+}
+.card-outline-glow:hover {
+  @apply border-zinc-300 dark:border-zinc-700 shadow-premium-hover;
+}
+
+/* Navigation indicators */
+.nav-active-indicator {
+  position: relative;
+}
+.nav-active-indicator::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 25%;
+  height: 50%;
+  width: 2px;
+  background-color: #09090b;
+}
+body.dark .nav-active-indicator::before {
+  background-color: #fafafa;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-width: 1px;
+  border-color: rgba(228, 228, 230, 0.8);
+}
+
+body.dark .glass {
+  background-color: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-width: 1px;
+  border-color: rgba(39, 39, 42, 0.5);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e4e4e7;
+  border-radius: 9999px;
+  transition: background-color 0.2s;
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  background-color: #27272a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0284c7;
+}
+
+/* Viewfinder Laser Scan Animation (Very subtle pulsing bar) */
+@keyframes laserScan {
+  0% { top: 0%; opacity: 0.1; }
+  50% { opacity: 0.4; }
+  100% { top: 100%; opacity: 0.1; }
+}
+
+.animate-laser {
+  animation: laserScan 4s linear infinite;
+}
+
+/* Smooth Fade animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
