@@ -21,27 +21,21 @@ api.interceptors.request.use(
 );
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState({
+    _id: '6a589aa802fdc30ee6e80d51',
+    name: 'Barath',
+    email: 'barathg122@gmail.com'
+  });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const loadStoredUser = () => {
-      try {
-        const storedUser = localStorage.getItem('claimzen_user');
-        const storedToken = localStorage.getItem('claimzen_token');
-        
-        if (storedUser && storedToken) {
-          setUser(JSON.parse(storedUser));
-        }
-      } catch (err) {
-        console.error('Failed to load stored user context', err);
-        localStorage.removeItem('claimzen_user');
-        localStorage.removeItem('claimzen_token');
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadStoredUser();
+    // Automatically save demo credentials in localStorage
+    localStorage.setItem('claimzen_token', 'mock_jwt_token_for_hackathon_demo');
+    localStorage.setItem('claimzen_user', JSON.stringify({
+      _id: '6a589aa802fdc30ee6e80d51',
+      name: 'Barath',
+      email: 'barathg122@gmail.com'
+    }));
   }, []);
 
   // Login handler
