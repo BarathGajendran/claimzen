@@ -35,7 +35,11 @@ export const AuthProvider = ({ children }) => {
         const storedUser = localStorage.getItem('claimzen_user');
         const storedToken = localStorage.getItem('claimzen_token');
         
-        if (storedUser && storedToken) {
+        if (storedToken === 'mock_jwt_token_for_hackathon_demo') {
+          localStorage.removeItem('claimzen_user');
+          localStorage.removeItem('claimzen_token');
+          setUser(null);
+        } else if (storedUser && storedToken) {
           setUser(JSON.parse(storedUser));
         }
       } catch (err) {

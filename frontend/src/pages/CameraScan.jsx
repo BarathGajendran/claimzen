@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Camera, X, ShieldCheck, Car, Play, AlertCircle, RefreshCw } from 'lucide-react';
+import { Camera, X, ShieldCheck, Car, Play, AlertCircle, RefreshCw, Sparkles } from 'lucide-react';
 import { api } from '../context/AuthContext';
 import { useToast } from '../components/Toast';
 import { Card } from '../components/Card';
@@ -263,6 +263,16 @@ const CameraScan = () => {
                         title="Switch facing mode"
                       >
                         <RefreshCw className="w-4.5 h-4.5" />
+                      </button>
+
+                      {/* Simulate Capture Fallback */}
+                      <button
+                        type="button"
+                        onClick={simulateCapture}
+                        className="p-3 rounded-full bg-zinc-950/60 hover:bg-zinc-900 border border-zinc-800 text-white shadow-md transition-all cursor-pointer"
+                        title="Simulate scan snapshot"
+                      >
+                        <Sparkles className="w-4.5 h-4.5 text-amber-400" />
                       </button>
                     </div>
                   </>
