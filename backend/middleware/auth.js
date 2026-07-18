@@ -13,6 +13,19 @@ const protect = async (req, res, next) => {
       // Get token from header
       token = req.headers.authorization.split(' ')[1];
 
+      // Enable token bypass for frontend pre-seeded demo session
+      if (token === 'mock_jwt_token_for_hackathon_demo') {
+        let user = await User.findOne({ email: 'barathg122@gmail.com' });
+        if (!user) {
+          user = await User.findOne({});
+        }
+        req.user = user;
+        if (!req.user) {
+          return res.status(401).json({ success: false, message: 'User not found in system' });
+        }
+        return next();
+      }
+
       // Verify token
       const decoded = jwt.verify(token, process.env.JWT_SECRET || 'claimvision_secret_key_12345');
 
