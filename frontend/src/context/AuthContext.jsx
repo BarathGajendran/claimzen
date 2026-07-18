@@ -4,8 +4,13 @@ import axios from 'axios';
 const AuthContext = createContext();
 
 // Centralized Axios Instance configured for backend API
+let rawBaseURL = import.meta.env.VITE_API_URL || 'https://claimzen.onrender.com/api';
+if (rawBaseURL && !rawBaseURL.endsWith('/api') && !rawBaseURL.endsWith('/api/')) {
+  rawBaseURL = rawBaseURL.endsWith('/') ? `${rawBaseURL}api` : `${rawBaseURL}/api`;
+}
+
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://claimzen.onrender.com/api'
+  baseURL: rawBaseURL
 });
 
 // Automatically inject JWT Bearer Token into requests if available
@@ -21,21 +26,27 @@ api.interceptors.request.use(
 );
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({
-    _id: '6a589aa802fdc30ee6e80d51',
-    name: 'Barath',
-    email: 'barathg122@gmail.com'
-  });
-  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Automatically save demo credentials in localStorage
-    localStorage.setItem('claimzen_token', 'mock_jwt_token_for_hackathon_demo');
-    localStorage.setItem('claimzen_user', JSON.stringify({
-      _id: '6a589aa802fdc30ee6e80d51',
-      name: 'Barath',
-      email: 'barathg122@gmail.com'
-    }));
+    const loadStoredUser = () => {
+      try {
+        const storedUser = localStorage.getItem('claimzen_user');
+        const storedToken = localStorage.getItem('claimzen_token');
+        
+        if (storedUser && storedToken) {
+          setUser(JSON.parse(storedUser));
+        }
+      } catch (err) {
+        console.error('Failed to load stored user context', err);
+        localStorage.removeItem('claimzen_user');
+        localStorage.removeItem('claimzen_token');
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadStoredUser();
   }, []);
 
   // Login handler
