@@ -28,11 +28,21 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/claims', require('./routes/claims'));
 
+const mongoose = require('mongoose');
+
 // Default Root Route
 app.get('/', (req, res) => {
+  const dbStatus = mongoose.connection.readyState;
+  const dbStatusMap = {
+    0: 'disconnected',
+    1: 'connected',
+    2: 'connecting',
+    3: 'disconnecting'
+  };
   res.json({
     message: 'ClaimZen API is operational',
     status: 'online',
+    database: dbStatusMap[dbStatus] || 'unknown',
     version: '1.0.0'
   });
 });
