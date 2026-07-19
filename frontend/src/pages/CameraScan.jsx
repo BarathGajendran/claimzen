@@ -325,6 +325,19 @@ const CameraScan = () => {
               </div>
             )}
           </Card>
+          
+          {!imagePreview && (
+            <div className="flex justify-center pt-2">
+              <button
+                type="button"
+                onClick={simulateCapture}
+                className="w-full py-2.5 rounded-xl border border-dashed border-zinc-300 dark:border-zinc-800 text-zinc-550 dark:text-zinc-400 hover:bg-zinc-150 dark:hover:bg-zinc-900/60 font-semibold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-transparent"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                <span>Bypass Camera & Simulate Damage Snapshot</span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Right Area: Form metadata */}

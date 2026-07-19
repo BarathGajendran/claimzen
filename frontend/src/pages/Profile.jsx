@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Mail, ShieldAlert, KeyRound, Database } from 'lucide-react';
+import { User, Mail, KeyRound, Database } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { Card } from '../components/Card';
 
@@ -79,17 +79,6 @@ const Profile = () => {
                 <p className="text-zinc-900 dark:text-zinc-200">Connected to HackathonVision Cluster0</p>
               </div>
             </div>
-          </div>
-        </Card>
-
-        {/* Security Notice Card */}
-        <Card className="p-4 bg-zinc-50 dark:bg-zinc-900/30 border border-zinc-200 dark:border-zinc-800 flex gap-3 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
-          <ShieldAlert className="w-5 h-5 text-zinc-400 shrink-0 mt-0.5" />
-          <div className="space-y-1">
-            <h4 className="font-bold text-zinc-800 dark:text-zinc-200">Security Credentials Notice</h4>
-            <p className="text-[10px] text-zinc-500 dark:text-zinc-405 leading-relaxed font-semibold">
-              This account uses secure JSON Web Token authorization gates. Session state expires automatically after 30 days. Contact system administrator for token rotations.
-            </p>
           </div>
         </Card>
       </div>
